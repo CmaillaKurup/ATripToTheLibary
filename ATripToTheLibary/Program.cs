@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ATripToTheLibary
 {
@@ -7,25 +6,23 @@ namespace ATripToTheLibary
     {
         static void Main(string[] args)
         {
+            //conecting Person to the main
+            Person p = new Person();
+            p.StackOfBooks = p.Bascket();
             
-            List<Book> b = new List<Book>();
+            //shows the amount of books in the basket
+            Console.WriteLine(p.StackOfBooks.Count);
             
-            b.Add(new Book(){Titel = "Asterix", Genre = "Children"});
-            b.Add(new Book(){Titel = "I Østen Stiger Solen Op", Genre = "Religion"});
-            b.Add(new Book(){Titel = "Romeo and Juliet", Genre = "Drama"});
-            b.Add(new Book(){Titel = "Out of control", Genre = "Crime"});
-            
-            Console.WriteLine();
-            foreach (Book aPart in b)
+            //shows wich books that are cosing
+            foreach (Book aPart in p.StackOfBooks)
             {
                 Console.WriteLine(aPart);
             }
-                
-
-
-            //Stack<BookManager> sbm = new Stack<BookManager>();
-            //sbm.Push();
-
+            //takes thoes books and add them to the ones the user want with him home
+            p.BorrowAllBooks();
+            
+            //shows the amaunt that he has chosen that had not been borrowed
+            Console.WriteLine(p.StackOfBooks.Count);
         }
     }
 }
